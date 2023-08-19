@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script src="script.js"></script>
+<body>
+    <div class="newBookWrapper">
+        <button id="newBookButton">NEW BOOK</button>
+    </div>
+
+    <dialog id="newBookDialog" open>
+        <form method=dialog class="addBook" action="">
+            <h1>Add a book!</h1>
+            <fieldset>
+                <div>
+                    <label for="title">Title:</label>
+                    <input id="title" type="text" name="title">    
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input id="author" type="text" name="author">    
+                </div>
+                <div>
+                    <label for="pages">Pages:</label>
+                    <input type="text" id="pages" name="pages">    
+                </div>
+                <div>
+                    <p>Have you read this yet?</p>
+                    <label for="yesRead">Yes</label>
+                    <input type="radio" id="yesRead" name="read" value="read">
+                    <label for="notRead">No</label>
+                    <input type="radio" id="notRead" name="read" value="not read yet">    
+                </div>
+                <div>
+                    <button id="submitNewBook" type="submit">Submit</button>
+                    <button id="cancelNewBook" type="submit">Cancel</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    
+    
+    <div class="addBookWrapper">
+        
+    </div>
+
+
+    <div class="table">
+        <table>
+            <caption>
+                Library
+            </caption>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read?</th>
+                </tr>    
+            </thead>
+            <tbody id="tableBook"></tbody>    
+        </table>
+    </div>
+
+</body>
+</html>

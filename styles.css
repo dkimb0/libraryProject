@@ -1,0 +1,31 @@
+table{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+
+.newBookWrapper{
+    margin: 50px auto 50px auto;
+
+}
+
+.addBook h1{
+    text-align: center;
+}
+
+
+
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+body{
+    display: grid;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
