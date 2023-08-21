@@ -2,7 +2,7 @@
 //initialize library array
 const myLibrary = [];
 
-//Book object
+//Constructor: Book object
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -10,17 +10,17 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
-//function to add book to library array
+//add book to library array
 function addBookToLibrary(book, library){
     library.push(book);
 }
 
-//function to delete a book from library array
+//delete a book from library array
 function deleteBook(index, library){
     return library.splice(index, 1);
 }
 
-//function to load table onto page
+//load table onto page
 function loadBookTable(library){
     const tableBody = document.getElementById('tableBook');
     //set empty table contents
@@ -56,8 +56,8 @@ function loadBookTable(library){
 
 }
 
-//function to add click event listener to each generated button
-//works for both change and delete buttons
+//add click event listener to each button
+//for both change and delete buttons
 function buttonListener(button, library){
     button.addEventListener("click", () =>{
         if (button.dataset.type === 'change'){
@@ -74,7 +74,7 @@ function buttonListener(button, library){
     })
 }
 
-//makes table load on opening page
+//load table upon opening page
 window.onload = () => {
     loadBookTable(myLibrary);
 }
