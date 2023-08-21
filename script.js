@@ -1,43 +1,6 @@
+//INITIALIZE
 //initialize library array
 const myLibrary = [];
-
-// initialize buttons for dialog
-const openButton = document.getElementById("newBookButton")
-const submitButton = document.getElementById("submitNewBook");
-const cancelButton = document.getElementById("cancelNewBook");
-const dialog = document.getElementById("newBookDialog");
-
-//makes table load on opening page
-window.onload = () => {
-    loadBookTable(myLibrary);
-}
-
-//open/close dialog box
-openButton.addEventListener("click", () => {
-    dialog.showModal();
-});
-
-submitButton.addEventListener("click", () =>{
-    let newTitle = document.getElementById("title");
-    let newAuthor = document.getElementById("author");
-    let newPages = document.getElementById("pages");
-    let newRead = document.getElementById("read");
-    console.log(newRead.value);
-
-    const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
-    console.log(newBook);
-
-    addBookToLibrary(newBook);
-
-    loadBookTable(myLibrary);
-
-
-})
-
-cancelButton.addEventListener("click", () =>{
-    dialog.close();
-});
-
 
 //Book object
 function Book(title, author, pages, read){
@@ -47,28 +10,24 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
-//fxn to add book to library array
+//function to add book to library array
 function addBookToLibrary(book){
     myLibrary.push(book);
 }
 
-
-
+//function to delete a book from library array
 function deleteBook(index){
     return myLibrary.splice(index, 1);
 }
 
-
-// function displayLibrary(library){    
-//     for (let i = 0; i < library.length; i++){
-//         console.log(`${library[i].title} by ${library[i].author}, ${library[i].pages} pages, ${library[i].read}`);
-//     }
-// }
-
+//function to load table onto page
 function loadBookTable(bookData){
     const tableBody = document.getElementById('tableBook');
+    //set empty table contents
     let dataHtml = ''
 
+    //iteratively add table contents to dataHtml
+    //also add data-index and data-type to change status/delete buttons
     bookData.forEach((book, index) => {
         dataHtml += `<tr><td>${book.title}</td>
         <td>${book.author}</td>
@@ -76,27 +35,24 @@ function loadBookTable(bookData){
         <td>${book.read}</td>
         <td><button class="changeButton" data-index="${index}" data-type='change'>Change Read</button></td>
         <td><button class="deleteButton" data-index="${index}" data-type="delete">Delete</button></td>`;
-
-
     });
 
-    
-
+    //set table to show dataHtml table contents
     tableBody.innerHTML = dataHtml;
 
+    //query select nodelists of all change/delete buttons
     let listChangeButton = document.querySelectorAll('.changeButton');
     let listDeleteButton = document.querySelectorAll('.deleteButton');
+    //for every button, set a event listener
     listChangeButton.forEach(buttonListener);
     listDeleteButton.forEach(buttonListener);
-
-
-
 }
 
+//function to add click event listener to each generated button
+//works for both change and delete buttons
 function buttonListener(button){
     button.addEventListener("click", () =>{
         if (button.dataset.type === 'change'){
-            console.log(myLibrary[button.dataset.index].read);
             if (myLibrary[button.dataset.index].read === 'Y'){
                 myLibrary[button.dataset.index].read = 'N';
             }else{
@@ -109,6 +65,54 @@ function buttonListener(button){
         }
     })
 }
+
+//makes table load on opening page
+window.onload = () => {
+    loadBookTable(myLibrary);
+}
+
+
+
+
+//DIALOG BOX
+// initialize buttons for dialog
+const openButton = document.getElementById("newBookButton");
+const submitButton = document.getElementById("submitNewBook");
+const cancelButton = document.getElementById("cancelNewBook");
+const dialog = document.getElementById("newBookDialog");
+
+//open dialog box for adding new books
+openButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+//submit new book in dialog box
+submitButton.addEventListener("click", () =>{
+    let newTitle = document.getElementById("title");
+    let newAuthor = document.getElementById("author");
+    let newPages = document.getElementById("pages");
+    let newRead = document.getElementById("read");
+
+    //create new Book object from form inputs
+    const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
+
+    addBookToLibrary(newBook);
+    loadBookTable(myLibrary);
+})
+
+
+//cancel out of new book dialog box
+cancelButton.addEventListener("click", () =>{
+    dialog.close();
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -155,8 +159,3 @@ addBookToLibrary(asILayDying);
 addBookToLibrary(nakedLunch);
 addBookToLibrary(whiteNoise);
 addBookToLibrary(toTheLighthouse);
-
-
-
-
-
