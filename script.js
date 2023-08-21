@@ -156,12 +156,6 @@ addBookToLibrary(nakedLunch);
 addBookToLibrary(whiteNoise);
 addBookToLibrary(toTheLighthouse);
 
-//const holes = new Book('Holes', 'Louis Sachar', 200, 'read');
-//addBookToLibrary(holes);
-
-
-// Dialog box and form event handlers
-
 
 
 
