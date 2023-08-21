@@ -6,13 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<script src="script.js"></script>
 <body>
+
+<!-- New Book Button -->
     <div class="newBookWrapper">
-        <button id="newBookButton">NEW BOOK</button>
+        <button id="newBookButton" type="button">NEW BOOK</button>
     </div>
 
-    <dialog id="newBookDialog" open>
+<!-- Dialog/Form for new Book -->
+    <dialog id="newBookDialog" data-modal>
         <form method=dialog class="addBook" action="">
             <h1>Add a book!</h1>
             <fieldset>
@@ -29,11 +31,8 @@
                     <input type="text" id="pages" name="pages">    
                 </div>
                 <div>
-                    <p>Have you read this yet?</p>
-                    <label for="yesRead">Yes</label>
-                    <input type="radio" id="yesRead" name="read" value="read">
-                    <label for="notRead">No</label>
-                    <input type="radio" id="notRead" name="read" value="not read yet">    
+                    <label for="read">Read (Y/N): </label>
+                    <input type="text" id="read" name="read">
                 </div>
                 <div>
                     <button id="submitNewBook" type="submit">Submit</button>
@@ -44,10 +43,7 @@
     </dialog>
     
     
-    <div class="addBookWrapper">
-        
-    </div>
-
+<!-- Table -->
 
     <div class="table">
         <table>
@@ -60,11 +56,15 @@
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Read?</th>
+                    <th>Change Status</th>
+                    <th>Delete</th>
                 </tr>    
             </thead>
             <tbody id="tableBook"></tbody>    
         </table>
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
