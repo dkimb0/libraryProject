@@ -11,24 +11,24 @@ function Book(title, author, pages, read){
 }
 
 //function to add book to library array
-function addBookToLibrary(book){
-    myLibrary.push(book);
+function addBookToLibrary(book, library){
+    library.push(book);
 }
 
 //function to delete a book from library array
-function deleteBook(index){
-    return myLibrary.splice(index, 1);
+function deleteBook(index, library){
+    return library.splice(index, 1);
 }
 
 //function to load table onto page
-function loadBookTable(bookData){
+function loadBookTable(library){
     const tableBody = document.getElementById('tableBook');
     //set empty table contents
     let dataHtml = ''
 
     //iteratively add table contents to dataHtml
     //also add data-index and data-type to change status/delete buttons
-    bookData.forEach((book, index) => {
+    library.forEach((book, index) => {
         dataHtml += `<tr><td>${book.title}</td>
         <td>${book.author}</td>
         <td>${book.pages}</td>
@@ -43,25 +43,33 @@ function loadBookTable(bookData){
     //query select nodelists of all change/delete buttons
     let listChangeButton = document.querySelectorAll('.changeButton');
     let listDeleteButton = document.querySelectorAll('.deleteButton');
+    
     //for every button, set a event listener
-    listChangeButton.forEach(buttonListener);
-    listDeleteButton.forEach(buttonListener);
+
+    for (i = 0; i < listChangeButton.length; i++){
+        buttonListener(listChangeButton[i], library);
+    }
+
+    for (i = 0; i < listDeleteButton.length; i++){
+        buttonListener(listDeleteButton[i], library);
+    }
+
 }
 
 //function to add click event listener to each generated button
 //works for both change and delete buttons
-function buttonListener(button){
+function buttonListener(button, library){
     button.addEventListener("click", () =>{
         if (button.dataset.type === 'change'){
-            if (myLibrary[button.dataset.index].read === 'Y'){
-                myLibrary[button.dataset.index].read = 'N';
+            if (library[button.dataset.index].read === 'Y'){
+                library[button.dataset.index].read = 'N';
             }else{
-                myLibrary[button.dataset.index].read = 'Y';
+                library[button.dataset.index].read = 'Y';
             }
-            loadBookTable(myLibrary);
+            loadBookTable(library);
         }else{
-            deleteBook(button.dataset.index);
-            loadBookTable(myLibrary);
+            deleteBook(button.dataset.index, library);
+            loadBookTable(library);
         }
     })
 }
@@ -96,7 +104,7 @@ submitButton.addEventListener("click", () =>{
     //create new Book object from form inputs
     const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
 
-    addBookToLibrary(newBook);
+    addBookToLibrary(newBook,myLibrary);
     loadBookTable(myLibrary);
 })
 
@@ -139,23 +147,23 @@ const nakedLunch = new Book('Naked Lunch', 'William S. Burroughs', 232, 'N');
 const whiteNoise = new Book('White Noise', 'Don DeLillo', 326, 'N');
 const toTheLighthouse = new Book('To the Lighthouse', 'Virginia Woolf', 209, 'N');
 
-addBookToLibrary(theMedium);
-addBookToLibrary(illusions);
-addBookToLibrary(loveless);
-addBookToLibrary(slouching);
-addBookToLibrary(onTheRoad);
-addBookToLibrary(tropicOfCancer);
-addBookToLibrary(loveInTheTime);
-addBookToLibrary(storyOfTheEye);
-addBookToLibrary(zenMind);
-addBookToLibrary(mythOfSisyphus);
-addBookToLibrary(bloodMeridian);
-addBookToLibrary(sailorWho);
-addBookToLibrary(stoner);
-addBookToLibrary(crash);
-addBookToLibrary(lordJim);
-addBookToLibrary(deltaOfVenus);
-addBookToLibrary(asILayDying);
-addBookToLibrary(nakedLunch);
-addBookToLibrary(whiteNoise);
-addBookToLibrary(toTheLighthouse);
+addBookToLibrary(theMedium, myLibrary);
+addBookToLibrary(illusions, myLibrary);
+addBookToLibrary(loveless, myLibrary);
+addBookToLibrary(slouching, myLibrary);
+addBookToLibrary(onTheRoad, myLibrary);
+addBookToLibrary(tropicOfCancer, myLibrary);
+addBookToLibrary(loveInTheTime, myLibrary);
+addBookToLibrary(storyOfTheEye, myLibrary);
+addBookToLibrary(zenMind, myLibrary);
+addBookToLibrary(mythOfSisyphus, myLibrary);
+addBookToLibrary(bloodMeridian, myLibrary);
+addBookToLibrary(sailorWho, myLibrary);
+addBookToLibrary(stoner, myLibrary);
+addBookToLibrary(crash, myLibrary);
+addBookToLibrary(lordJim, myLibrary);
+addBookToLibrary(deltaOfVenus, myLibrary);
+addBookToLibrary(asILayDying, myLibrary);
+addBookToLibrary(nakedLunch, myLibrary);
+addBookToLibrary(whiteNoise, myLibrary);
+addBookToLibrary(toTheLighthouse, myLibrary);
