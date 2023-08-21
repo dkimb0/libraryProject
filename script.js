@@ -114,13 +114,47 @@ function buttonListener(button){
 
 //hardcoded info for testing
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, 'N');
-const animalFarm = new Book('Animal Farm', 'George Orwell', 100, 'Y');
-const atlasShrugged = new Book('Atlas Shrugged', 'Ayn Rand', 1000, 'N');
+const theMedium = new Book('The Medium is the Massage', 'Marshall McLuhan & Quentin Fiore', 159, 'Y');
+const illusions = new Book('Illusions', 'Richard Bach', 192, 'Y');
+const loveless = new Book('Loveless', 'Mike McGonigal', 119, 'Y');
+const slouching = new Book('Slouching Towards Bethlehem', 'Joan Didion', 236, 'Y');
+const onTheRoad = new Book('On The Road', 'Jack Kerouac', 254, 'Y');
+const tropicOfCancer = new Book('Tropic of Cancer', 'Henry Miller', 318, 'Y');
+const loveInTheTime = new Book('Love in the Time of Cholera', 'Gabriel Garcia Marquez', 348, 'Y');
+const storyOfTheEye = new Book('Story of the Eye', 'Georges Bataille', 126, 'Y');
+const zenMind = new Book('Zen Mind, Beginner\'s Mind', 'D.T Suzuki', 138, 'Y');
+const mythOfSisyphus = new Book('The Myth of Sisyphus', 'Albert Camus', 212, 'Y');
+const bloodMeridian = new Book('Blood Meridian', 'Cormac McCarthy', 353, 'Y');
+const sailorWho = new Book('The Sailor Who Fell From Grace With the Sea', 'Yukio Mishima', 181, 'Y');
+const stoner = new Book('Stoner', 'John Williams', 278, 'Y');
+const crash = new Book('Crash', 'J.G. Ballard', 224, 'Y');
+const lordJim = new Book('Lord Jim', 'Joseph Conrad', 271, 'N');
+const deltaOfVenus = new Book('Delta of Venus', 'Anaïs Nin', 268, 'N');
+const asILayDying = new Book('As I Lay Dying', "William Faulkner", 267, 'N');
+const nakedLunch = new Book('Naked Lunch', 'William S. Burroughs', 232, 'N');
+const whiteNoise = new Book('White Noise', 'Don DeLillo', 326, 'N');
+const toTheLighthouse = new Book('To the Lighthouse', 'Virginia Woolf', 209, 'N');
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(animalFarm);
-addBookToLibrary(atlasShrugged);
+addBookToLibrary(theMedium);
+addBookToLibrary(illusions);
+addBookToLibrary(loveless);
+addBookToLibrary(slouching);
+addBookToLibrary(onTheRoad);
+addBookToLibrary(tropicOfCancer);
+addBookToLibrary(loveInTheTime);
+addBookToLibrary(storyOfTheEye);
+addBookToLibrary(zenMind);
+addBookToLibrary(mythOfSisyphus);
+addBookToLibrary(bloodMeridian);
+addBookToLibrary(sailorWho);
+addBookToLibrary(stoner);
+addBookToLibrary(crash);
+addBookToLibrary(lordJim);
+addBookToLibrary(deltaOfVenus);
+addBookToLibrary(asILayDying);
+addBookToLibrary(nakedLunch);
+addBookToLibrary(whiteNoise);
+addBookToLibrary(toTheLighthouse);
 
 //const holes = new Book('Holes', 'Louis Sachar', 200, 'read');
 //addBookToLibrary(holes);
