@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 class="mainHeader">Aesthete Library</h1>
 
 <!-- New Book Button -->
     <div class="newBookWrapper">
@@ -18,7 +19,7 @@
         <form method=dialog class="addBook" action="">
             <h1>Add a book!</h1>
             <fieldset>
-                <div>
+                <div >
                     <label for="title">Title:</label>
                     <input id="title" type="text" name="title">    
                 </div>
@@ -34,7 +35,7 @@
                     <label for="read">Read (Y/N): </label>
                     <input type="text" id="read" name="read">
                 </div>
-                <div>
+                <div class="formButtons">
                     <button id="submitNewBook" type="submit">Submit</button>
                     <button id="cancelNewBook" type="submit">Cancel</button>
                 </div>
@@ -47,16 +48,15 @@
 
     <div class="table">
         <table>
-            <caption>
-                Library
-            </caption>
+
+            
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
+                    <th class="leftColumn">Title</th>
+                    <th class="leftColumn">Author</th>
                     <th>Pages</th>
-                    <th>Read?</th>
-                    <th>Change Status</th>
+                    <th>Read</th>
+                    <th>Status</th>
                     <th>Delete</th>
                 </tr>    
             </thead>

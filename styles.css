@@ -1,26 +1,13 @@
-table{
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
+/* Main Page styling */
+/* Setting color variables */
+:root{
+    --white: rgb(251, 251, 251);
+    --lightGrey: rgb(251, 251, 251);
+    --darkGrey: rgb(155, 155, 155);
+    --black: rgb(63, 63, 63);
+    --lightPink: rgb(255, 227, 253);
+    --darkPink: rgb(255, 193, 251);
 
-
-
-.newBookWrapper{
-    margin: 50px auto 50px auto;
-
-}
-
-.addBook h1{
-    text-align: center;
-}
-
-
-
-td, th{
-    border: 1px solid black;
-    padding: 10px;
 }
 
 body{
@@ -28,4 +15,127 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--lightGrey)
 }
+
+.mainHeader{
+    margin: 40px auto 0 auto;
+ 
+}
+
+
+
+
+
+
+
+/* Table formatting */
+table{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+/* Centering pages, read, status, delete columns */
+.centerColumn{
+    text-align: center;
+}
+
+.rightColumn{
+    text-align: right;
+}
+
+.leftColumn{
+    text-align: left;
+}
+
+.changeButton,
+.deleteButton{
+    border-color: none;
+}
+
+td, th{
+    border: 1px solid var(--black);
+    padding: 10px;
+}
+
+
+/* For trying to make the top row sticky */
+/* th{
+    position: sticky;
+    top:0;
+}
+
+table{
+    position: relative;
+    border-collapse: collapse;
+} */
+
+thead{
+    background: var(--darkGrey);
+    color: var(--white);
+}
+
+
+
+
+
+
+
+
+
+/* Dialog Box */
+.newBookWrapper{
+    margin: 24px auto 36px auto;
+}
+
+#newBookButton{
+    padding: 24px 48px;
+    border-radius: 24px;
+    background-color: var(--lightPink);
+}
+
+fieldset{
+    margin-bottom: 48px;
+    margin-left: 48px;
+    margin-right: 48px;
+    padding: 48px;
+    border-radius: 24px;
+}
+
+#newBookDialog{
+    border-radius: 24px;
+}
+
+#newBookButton:hover{
+    background-color: var(--darkPink);
+
+}
+
+.addBook h1{
+    text-align: center;
+}
+
+fieldset > div{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.formButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+

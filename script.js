@@ -31,10 +31,10 @@ function loadBookTable(library){
     library.forEach((book, index) => {
         dataHtml += `<tr><td>${book.title}</td>
         <td>${book.author}</td>
-        <td>${book.pages}</td>
-        <td>${book.read}</td>
-        <td><button class="changeButton" data-index="${index}" data-type='change'>Change Read</button></td>
-        <td><button class="deleteButton" data-index="${index}" data-type="delete">Delete</button></td>`;
+        <td class="rightColumn">${book.pages}</td>
+        <td class="centerColumn">${book.read}</td>
+        <td class="centerColumn"><button class="changeButton" data-index="${index}" data-type='change'>📖</button></td>
+        <td class="centerColumn"><button class="deleteButton" data-index="${index}" data-type="delete">🗑️</button></td>`;
     });
 
     //set table to show dataHtml table contents
@@ -88,6 +88,7 @@ const openButton = document.getElementById("newBookButton");
 const submitButton = document.getElementById("submitNewBook");
 const cancelButton = document.getElementById("cancelNewBook");
 const dialog = document.getElementById("newBookDialog");
+const inputs = document.querySelectorAll('input');
 
 //open dialog box for adding new books
 openButton.addEventListener("click", () => {
@@ -101,18 +102,27 @@ submitButton.addEventListener("click", () =>{
     let newPages = document.getElementById("pages");
     let newRead = document.getElementById("read");
 
+
     //create new Book object from form inputs
     const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, newRead.value);
 
     addBookToLibrary(newBook,myLibrary);
     loadBookTable(myLibrary);
+    clearForm(inputs)
+    
 })
 
 
 //cancel out of new book dialog box
 cancelButton.addEventListener("click", () =>{
     dialog.close();
+    clearForm(inputs);
 });
+
+//clears form inputs
+function clearForm(inputs){
+    inputs.forEach(input =>input.value = '');
+}
 
 
 
