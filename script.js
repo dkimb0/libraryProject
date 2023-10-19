@@ -2,12 +2,14 @@
 //initialize library array
 const myLibrary = [];
 
-//Constructor: Book object
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(_title, _author, _pages, _read) {
+        this.title = _title;
+        this.author = _author;
+        this.pages = _pages;
+        this.read = _read;
+    }
+
 }
 
 //add book to library array
@@ -19,6 +21,8 @@ function addBookToLibrary(book, library){
 function deleteBook(index, library){
     return library.splice(index, 1);
 }
+
+
 
 //load table onto page
 function loadBookTable(library){
@@ -123,6 +127,9 @@ cancelButton.addEventListener("click", () =>{
 function clearForm(inputs){
     inputs.forEach(input =>input.value = '');
 }
+
+
+
 
 
 
